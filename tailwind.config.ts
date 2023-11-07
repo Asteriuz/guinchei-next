@@ -16,7 +16,8 @@ const config: Config = {
         preto: "#333",
         branco: "#fff",
         cinza: {
-          DEFAULT: "#7D7C7C",
+          DEFAULT: "#6c6c6c",
+          footer: "#7D7C7C",
           claro: "#26272b",
           escuro: "#1b1b1d",
         },
