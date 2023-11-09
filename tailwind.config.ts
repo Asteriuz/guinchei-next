@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         azul: {
           claro: "#00a7ef",
+          hover: "#0094d1",
           escuro: "#334a73",
         },
         preto: "#333",
@@ -24,6 +25,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 };
 export default config;

@@ -5,7 +5,6 @@ import "./styles/animation.css";
 import Footer from "@/components/Footer/Footer";
 import Script from "next/script";
 import Nav from "@/components/Nav/Nav";
-import Head from "next/head";
 
 const roboto = Roboto({
   weight: "400",
@@ -31,7 +30,8 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
-      <Script src="scroll.js" strategy="lazyOnload" />
+      <Script src="js/scroll.js" />
+      <Script src="js/nav.js" />
     </html>
   );
 }

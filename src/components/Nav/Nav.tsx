@@ -1,77 +1,127 @@
 import Image from "next/image";
 import GuincheiLogo from "@/assets/GuincheiLogoRemake.png";
 import Link from "next/link";
+import TowTruck from "@/assets/icons/tow-truck-mirror.svg";
 
 export default function Nav() {
   return (
-    <nav className="fixed top-0 left-0 z-20 w-full px-4 text-xl bg-azul-escuro">
-      <div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
-        <Link href="/" className="flex items-center">
-          <Image
-            src={GuincheiLogo}
-            className="mr-3 transition-all duration-300 ease-in-out hover:scale-110 "
-            alt="Flowbite Logo"
-            height={48}
-          />
-        </Link>
-
-        <div className="flex md:order-2">
-          <button
-            type="button"
-            className="px-4 py-2 mr-3 text-xl font-medium text-center text-white transition-all duration-300 hover:scale-105 rounded-xl bg-azul-claro hover:outline outline-azul-claro hover:bg-transparent md:mr-0 "
-          >
-            Solicite o Guincho
-          </button>
-          <button
-            data-collapse-toggle="navbar-sticky"
-            type="button"
-            className="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
-            aria-controls="navbar-sticky"
-            aria-expanded="false"
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
-        </div>
-        <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-          id="navbar-sticky"
+    <>
+      <button
+        type="button"
+        className="text-md invisible !fixed bottom-5 right-5 z-50 rounded-full bg-azul-claro p-4 font-medium uppercase leading-tight text-white opacity-0 shadow-lg transition-all duration-300 ease-in-out hover:bg-azul-hover hover:shadow-2xl focus:bg-azul-hover focus:shadow-lg focus:outline-none focus:ring-0 active:bg-azul-escuro active:shadow-2xl lg:bottom-10 lg:right-12"
+        id="btn-back-to-top"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fas"
+          className="w-4 h-4 lg:h-6 lg:w-6"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
         >
-          <ul className="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-azul-escuro ">
-            <li>
+          <path
+            fill="currentColor"
+            d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+          ></path>
+        </svg>
+      </button>
+      <header id="start" className="flex">
+        <nav
+          id="navbar"
+          className="fixed top-0 left-0 z-50 w-full text-2xl duration-500 ease-in-out bg-azul-escuro"
+        >
+          <div className="flex flex-wrap items-center justify-between p-4 mx-auto max-w-7xl">
+            <a href="#start">
+              <Image
+                className="transition duration-300 ease-in-out max-h-20 drop-shadow-lg hover:scale-110 md:max-h-24"
+                src={GuincheiLogo}
+                height={48}
+                alt="Logo do Guinchei"
+              />
+            </a>
+            <div className="flex items-center lg:order-2">
               <Link
-                href="/"
-                className="block py-2 pl-3 pr-4 text-white transition-all duration-300 ease-in-out rounded hover:scale-110 bg-azul-claro md:bg-transparent md:text-azul-claro md:p-0"
-                aria-current="page"
+                aria-label="Fale Conosco"
+                href="/solicitar-guincho"
+                className="mr-3 flex items-center gap-2 rounded-full bg-azul-claro p-4 text-center font-medium text-white shadow-md duration-300 ease-in-out hover:-translate-y-2 hover:bg-azul-hover hover:shadow-xl xs:bg-[#E72227] sm:px-4 sm:py-3 lg:mr-0 lg:bg-azul-claro"
               >
-                Home
+                <Image src={TowTruck} alt="Guincho Icon" height={35} width={35} />
+                <p className="hidden xs:block xs:text-lg lg:block lg:text-2xl hover:text-white">
+                  Solicitar Guincho
+                </p>
               </Link>
-            </li>
-            <li>
-              <Link
-                href="/contato"
-                className="block py-2 pl-3 pr-4 text-white transition-all duration-300 ease-in-out rounded hover:scale-110 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-azul-claro md:p-0 "
+              <button
+                id="navbar-toggle"
+                data-collapse-toggle="navbar-sticky"
+                type="button"
+                className="inline-flex items-center justify-center text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden"
+                aria-controls="navbar-sticky"
+                aria-expanded="false"
               >
-                Contato
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+                <span className="sr-only">Abrir o menu</span>
+                <svg
+                  id="hamburger-open"
+                  className="w-16 p-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 17 14"
+                >
+                  <path
+                    id="hamburger"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 1h15M1 7h15M1 13h15"
+                  />
+                </svg>
+                <svg
+                  id="hamburger-close"
+                  className="hidden w-16 px-3 py-[9px]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              className="items-center justify-between hidden w-full mx-auto lg:order-1 lg:flex lg:w-auto"
+              id="navbar-sticky"
+            >
+              <ul className="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:p-0">
+                <li>
+                  <a
+                    href="/"
+                    className="block py-2 pl-3 pr-4 text-white rounded home nav-link bg-azul-claro lg:bg-transparent lg:p-0 lg:text-azul-claro lg:hover:text-azul-hover"
+                    aria-current="page"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    href="/contato"
+                    className="block py-2 pl-3 pr-4 text-white rounded nav-link hover:bg-gray-100 lg:p-0 lg:hover:bg-transparent lg:hover:text-azul-hover"
+                  >
+                    Contato
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </>
   );
 }
