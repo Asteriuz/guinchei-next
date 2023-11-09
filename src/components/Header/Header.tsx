@@ -1,11 +1,15 @@
+"use client";
 import Image from "next/image";
 import GuincheiLogo from "@/assets/GuincheiLogoRemake.png";
 import Link from "next/link";
 import TowTruck from "@/assets/icons/tow-truck-mirror.svg";
+import { usePathname } from "next/navigation";
 
-export default function Nav() {
+export default function Header() {
+  const pathname = usePathname();
+
   return (
-    <>
+    <header>
       <button
         type="button"
         className="text-md invisible !fixed bottom-5 right-5 z-50 rounded-full bg-azul-claro p-4 font-medium uppercase leading-tight text-white opacity-0 shadow-lg transition-all duration-300 ease-in-out hover:bg-azul-hover hover:shadow-2xl focus:bg-azul-hover focus:shadow-lg focus:outline-none focus:ring-0 active:bg-azul-escuro active:shadow-2xl lg:bottom-10 lg:right-12"
@@ -29,24 +33,29 @@ export default function Nav() {
       <header id="start" className="flex">
         <nav
           id="navbar"
-          className="fixed top-0 left-0 z-50 w-full text-2xl duration-500 ease-in-out bg-azul-escuro"
+          className="fixed left-0 z-50 w-full text-2xl duration-500 ease-in-out sm:pr-8 pl-2 sm:pl-4 top-0 bg-azul-escuro"
         >
           <div className="flex flex-wrap items-center justify-between p-4 mx-auto max-w-7xl">
-            <a href="#start">
+            <Link href="/">
               <Image
                 className="transition duration-300 ease-in-out max-h-20 drop-shadow-lg hover:scale-110 md:max-h-24"
                 src={GuincheiLogo}
                 height={48}
                 alt="Logo do Guinchei"
               />
-            </a>
+            </Link>
             <div className="flex items-center lg:order-2">
               <Link
                 aria-label="Fale Conosco"
                 href="/solicitar-guincho"
                 className="mr-3 flex items-center gap-2 rounded-full bg-azul-claro p-4 text-center font-medium text-white shadow-md duration-300 ease-in-out hover:-translate-y-2 hover:bg-azul-hover hover:shadow-xl xs:bg-[#E72227] sm:px-4 sm:py-3 lg:mr-0 lg:bg-azul-claro"
               >
-                <Image src={TowTruck} alt="Guincho Icon" height={35} width={35} />
+                <Image
+                  src={TowTruck}
+                  alt="Guincho Icon"
+                  height={35}
+                  width={35}
+                />
                 <p className="hidden xs:block xs:text-lg lg:block lg:text-2xl hover:text-white">
                   Solicitar Guincho
                 </p>
@@ -103,7 +112,9 @@ export default function Nav() {
                 <li>
                   <a
                     href="/"
-                    className="block py-2 pl-3 pr-4 text-white rounded home nav-link bg-azul-claro lg:bg-transparent lg:p-0 lg:text-azul-claro lg:hover:text-azul-hover"
+                    className={`block py-2 pl-3 pr-4 text-white rounded nav-link ${
+                      pathname === "/" ? "bg-azul-claro lg:text-azul-claro" : ""
+                    } lg:bg-transparent lg:p-0  lg:hover:text-azul-hover`}
                     aria-current="page"
                   >
                     Home
@@ -112,7 +123,11 @@ export default function Nav() {
                 <li>
                   <Link
                     href="/contato"
-                    className="block py-2 pl-3 pr-4 text-white rounded nav-link hover:bg-gray-100 lg:p-0 lg:hover:bg-transparent lg:hover:text-azul-hover"
+                    className={`block py-2 pl-3 pr-4 text-white rounded nav-link ${
+                      pathname === "/contato"
+                        ? "bg-azul-claro lg:text-azul-claro"
+                        : ""
+                    } lg:bg-transparent lg:p-0  lg:hover:text-azul-hover`}
                   >
                     Contato
                   </Link>
@@ -122,6 +137,6 @@ export default function Nav() {
           </div>
         </nav>
       </header>
-    </>
+    </header>
   );
 }

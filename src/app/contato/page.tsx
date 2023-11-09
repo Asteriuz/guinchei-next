@@ -8,10 +8,10 @@ import Image from "next/image";
 
 export default function Contato() {
   return (
-    <main className="mt-20 mb-20">
+    <main className="my-20">
       <section id="cards">
-        <div className="container-cards">
-          <h1 className="font-bold">🃏 | Integrantes Cards</h1>
+        <div className="mb-10 container-cards">
+          <h1 className="mb-10 font-bold">🃏 | Integrantes Cards</h1>
           <div className="card">
             <div className="image">
               <Image

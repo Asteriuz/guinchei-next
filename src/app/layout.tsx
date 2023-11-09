@@ -4,7 +4,7 @@ import "./globals.css";
 import "./styles/animation.css";
 import Footer from "@/components/Footer/Footer";
 import Script from "next/script";
-import Nav from "@/components/Nav/Nav";
+import Header from "@/components/Header/Header";
 
 const roboto = Roboto({
   weight: "400",
@@ -26,12 +26,13 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={roboto.className + " overflow-x-hidden"}>
-        <Nav />
+        <Header />
         {children}
         <Footer />
       </body>
-      <Script src="js/scroll.js" />
+      <Script src="js/flowbite.min.js" />
       <Script src="js/nav.js" />
+      <Script src="js/scroll.js" />
     </html>
   );
 }
