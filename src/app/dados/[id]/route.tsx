@@ -7,7 +7,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const id = params.id;
-  const res = await fetch(`https://127.0.0.1:8080/${id}`);
+  const res = await fetch(`http://127.0.0.1:8080/${id}`);
   const data: Dados = await res.json();
   return NextResponse.json(data);
 }
