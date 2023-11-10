@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import Script from "next/script";
 import Header from "@/components/Header/Header";
 import Head from "next/head";
+import { useEffect } from "react";
 
 const roboto = Roboto({
   weight: "400",
@@ -49,7 +50,13 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <body className={roboto.className}>
+      <body
+        className={
+          roboto.className +
+          // if top of page add scroll-top class
+          " scroll-top vsc-initialized"
+        }
+      >
         <Header />
         <main className="overflow-x-hidden">{children}</main>
         <Footer />

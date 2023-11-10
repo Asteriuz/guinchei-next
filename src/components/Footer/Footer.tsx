@@ -5,7 +5,7 @@ import GuincheiLogo from "@/assets/GuincheiLogo.svg";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function () {
+export default function Footer() {
   return (
     <footer className="text-base lg:pt-8 bg-cinza-claro">
       <div className="w-full max-w-screen-xl p-4 mx-auto bg-cinza-claro">
@@ -87,7 +87,7 @@ export default function () {
                   <a
                     className="flex gap-1 group"
                     target="_blank"
-                    href="https://wa.me/5511941539651?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Cl%C3%ADnica+Plena"
+                    href="https://wa.me/5511997434003?text=Olá!%20Gostaria%20de%20solicitar%20um%20guincho."
                   >
                     <svg
                       className="w-6 shrink-0 group-hover:fill-green-500"

@@ -55,7 +55,7 @@ export default function Home() {
       </section>
       <section className="about">
         <div className="mb-10 about-text">
-          <h1 className="mx-auto text-5xl font-bold tracking-wider">
+          <h1 className="mx-auto text-5xl font-bold tracking-wider ">
             Sobre o Projeto
           </h1>
           <p className="mx-auto text-base text-center w-96 text-cinza ">

@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, FormEvent, useState, useEffect } from "react";
 import "./style.css";
+import Link from "next/link";
 
 export default function SolicitarGuincho() {
   const submitBtn = useRef<HTMLInputElement>(null);
@@ -8,15 +9,19 @@ export default function SolicitarGuincho() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [dados, setDados] = useState<Dados[]>([]);
 
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [imagem, setImagem] = useState("");
+  const [endereco, setEndereco] = useState("");
   const [marca, setMarca] = useState("");
   const [modelosDisponiveis, setModelosDisponiveis] = useState<String[]>([""]);
+  const [modelo, setModelo] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("http://localhost:3000/dados/");
       const data: Dados[] = await response.json();
       setDados(data);
-      console.log(data);
       setModelosDisponiveis(data.map((dado) => dado.nome));
     };
     fetchData();
@@ -44,22 +49,54 @@ export default function SolicitarGuincho() {
       .filter((dado) => dado.marca === marca)
       .map((dado) => dado.nome);
     setModelosDisponiveis(modelosDaMarca);
-  }, [marca]);
+  }, [marca, dados]);
 
   return (
     <div className="main-forms">
       {isSubmitted ? (
-        <div className="success-message mt-4 outline rounded-3xl p-8">
-          <h2>Solicitação enviada com sucesso!</h2>
-          <p className="text-cinza-escuro mt-2 mb-2">
+        <div className="flex flex-col mx-2 gap-y-2 justify-center items-center p-8 mt-4 outline rounded-3xl">
+          <h2 className="text-4xl font-bold text-center">
+            Solicitação enviada com sucesso!
+          </h2>
+          <p className="text-cinza-escuro mt-2 mb-2 text-2xl text-center">
             Em breve entraremos em contato com você por e-mail.
           </p>
-          <p className="text-cinza-escuro mb-4">
+          <p className="text-cinza-escuro mb-4 text-2xl text-center">
             Obrigado por escolher o Guinchei!
           </p>
-          <a className="button" href="/">
-            Voltar para a página inicial
-          </a>
+          <Link
+            className="button flex items-center justify-center gap-x-2"
+            href="/"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0,0,256,256"
+              width="35px"
+              height="35px"
+              className="inline"
+            >
+              <g
+                fill="#ffffff"
+                fill-rule="nonzero"
+                stroke="none"
+                strokeWidth="2"
+                strokeLinecap="butt"
+                strokeLinejoin="miter"
+                strokeMiterlimit="10"
+                strokeDasharray=""
+                strokeDashoffset="0"
+                fontFamily="none"
+                fontWeight="none"
+                fontSize="none"
+                textAnchor="none"
+              >
+                <g transform="scale(5.12,5.12)">
+                  <path d="M24.96289,1.05469c-0.20987,0.00724 -0.41214,0.08036 -0.57812,0.20898l-23,17.94727c-0.43579,0.33978 -0.51361,0.96851 -0.17383,1.4043c0.33978,0.43579 0.96851,0.51361 1.4043,0.17383l1.38477,-1.08008v26.29102c0.00006,0.55226 0.44774,0.99994 1,1h13.83203c0.10799,0.01785 0.21818,0.01785 0.32617,0h11.67383c0.10799,0.01785 0.21818,0.01785 0.32617,0h13.8418c0.55226,-0.00006 0.99994,-0.44774 1,-1v-26.29102l1.38477,1.08008c0.2819,0.21983 0.65967,0.27257 0.991,0.13833c0.33133,-0.13423 0.56586,-0.43504 0.61526,-0.7891c0.0494,-0.35406 -0.09386,-0.70757 -0.37579,-0.92736l-7.61523,-5.94141v-7.26953h-6v2.58594l-9.38477,-7.32227c-0.18607,-0.14428 -0.41707,-0.21828 -0.65234,-0.20898zM25,3.32227l19,14.82617v26.85156h-12v-19h-14v19h-12v-26.85156zM37,8h2v3.70898l-2,-1.5625zM20,28h10v17h-10z"></path>
+                </g>
+              </g>
+            </svg>
+            <p className="text-xl">Voltar para a página inicial</p>
+          </Link>
         </div>
       ) : (
         <section ref={formsSection} className="forms-section">
@@ -77,6 +114,8 @@ export default function SolicitarGuincho() {
                   name="fname"
                   placeholder="Nome"
                   required
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -92,6 +131,8 @@ export default function SolicitarGuincho() {
                   name="email"
                   placeholder="Email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -143,6 +184,10 @@ export default function SolicitarGuincho() {
                 accept="image/*,.pdf"
                 multiple
                 required
+                value={imagem}
+                onChange={(e) => {
+                  setImagem(e.target.value);
+                }}
               />
             </div>
             <div className="form-group extended">
@@ -156,6 +201,8 @@ export default function SolicitarGuincho() {
                 id="acidente"
                 placeholder="Endereço"
                 required
+                value={endereco}
+                onChange={(e) => setEndereco(e.target.value)}
               />
             </div>
             <p id="hint-subtitle" className="text-cinza-claro ml-4 mb-2">

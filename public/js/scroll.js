@@ -27,6 +27,10 @@ hiddenElements.forEach((hiddenElement) => observer.observe(hiddenElement));
 
 const body = document.querySelector("body");
 
+if (window.scrollY > 0) {
+  body.classList.remove("scroll-top");
+}
+
 window.addEventListener(
   "scroll",
   () => {
