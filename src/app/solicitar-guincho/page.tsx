@@ -166,6 +166,8 @@ export default function SolicitarGuincho() {
                   type="text"
                   className="border-0 shadow-[0px_8px_19px_-13px_rgba(0,0,0,0.6)] rounded-lg"
                   list="modelos"
+                  onChange={(e) => setModelo(e.target.value)}
+                  value={modelo}
                 />
                 <datalist id="modelos">
                   {modelosDisponiveis.map((modelo, index) => (
