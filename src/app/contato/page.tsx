@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Contato() {
   return (
-    <main className="my-20">
+    <div className="my-20">
       <section id="cards">
         <div className="mb-10 container-cards">
           <h1 className="mb-10 font-bold">🃏 | Integrantes Cards</h1>
@@ -70,7 +70,7 @@ export default function Contato() {
           </div>
         </div>
       </section>
-      <section>
+      <section className="mb-24 xl:mb-0">
         <ul className="px-2 lista-flex">
           <h2 className="text-2xl font-bold">👤| Integrantes - RM </h2>
           <li>
@@ -87,17 +87,17 @@ export default function Contato() {
           </li>
         </ul>
       </section>
-      <section>
+      <section className="mt-20">
         <div className="container-link">
           <h2 className="text-2xl font-bold">☁️| Link Repositório Github</h2>
           <a
-            href="https://github.com/FiapChallenge/WebChallenge"
+            href="https://github.com/Asteriuz/guinchei-next"
             target="_blank"
           >
-            https://github.com/FiapChallenge/WebChallenge
+            github.com/Asteriuz/guinchei-next
           </a>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

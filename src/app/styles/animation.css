@@ -18,18 +18,21 @@
 
 @keyframes float {
   0% {
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-    transform: translatey(0px);
+    /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
+    transform: translateY(24px);
   }
 
   50% {
-    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
-    transform: translatey(-20px);
+    /* box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2); */
+    filter: drop-shadow(0 25px 15px rgba(0, 0, 0, 0.2));
+    transform: translateY(-24px);
   }
 
   100% {
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-    transform: translatey(0px);
+    /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
+    transform: translateY(24px);
   }
 }
 
@@ -45,7 +48,7 @@
 
   to {
     opacity: 1;
-    transform: translateY(0%)
+    transform: translateY(0%);
   }
 }
 

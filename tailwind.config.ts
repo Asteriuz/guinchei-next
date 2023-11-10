@@ -24,6 +24,9 @@ const config: Config = {
           escuro: "#1b1b1d",
         },
       },
+      screens: {
+        xs: "320px",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],

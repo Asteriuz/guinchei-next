@@ -101,10 +101,6 @@
   width: 100%;
 }
 
-.lista-flex > li:nth-child(2) {
-  margin-bottom: 36px;
-}
-
 .lista-flex {
   margin: 0;
   padding: 0;
@@ -125,5 +121,5 @@
   font-size: 20px;
   font-weight: 500;
   transition: 0.3s ease-in-out;
-  font-size: clamp(16px, 3vw, 24px);
+  font-size: clamp(18px, 3vw, 24px);
 }

@@ -1,5 +1,4 @@
 div.textos-section {
-  margin-bottom: 110px;
   padding: 0;
   color: #00a7ef;
   font-size: 64px;
@@ -45,7 +44,9 @@ div.textos-section > a {
   box-sizing: border-box;
   border-radius: 25%;
   overflow: hidden;
-  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+  /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
+  /* convert to dropshadow */
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
   transform: translatey(0px);
 }
 
@@ -141,6 +142,7 @@ iframe {
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
+  gap: 32px 0px;
 }
 
 @media (max-width: 1011px) {

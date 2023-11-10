@@ -5,18 +5,14 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col pt-20 gap-y-8">
-      <section className="w-screen pt-24 bg-azul-escuro">
+    <div className="flex flex-col gap-y-8">
+      <section className="w-screen pt-44 bg-azul-escuro pb-24">
         <div className="flex flex-col items-center justify-between max-w-screen-xl px-8 pb-12 mx-auto gap-y-8 lg:flex-row bg-azul-escuro">
           <div className="order-2 lg:order-1 textos-section">
             <div className="title">
-              <p className="obs-hidden">Chamou!</p>
-              <p className="obs-hidden" style={{ ["--delay" as any]: 2 }}>
-                Chegou!
-              </p>
-              <p className="obs-hidden" style={{ ["--delay" as any]: 4 }}>
-                Guinchou!
-              </p>
+              <p>Chamou!</p>
+              <p>Chegou!</p>
+              <p>Guinchou!</p>
             </div>
             <div className="text-white subtitle animated fadeInUp">
               <p>
@@ -24,10 +20,7 @@ export default function Home() {
                 de distância!
               </p>
             </div>
-            <Link
-              href={"./solicitar-guincho"}
-              className="linkbutton group obs-hidden"
-            >
+            <Link href={"./solicitar-guincho"} className="linkbutton group">
               <svg
                 className="inline mr-3 duration-500 ease-in-out fill-white stroke-white group-hover:fill-azul-claro group-hover:stroke-azul-claro"
                 width="35px"
@@ -56,6 +49,7 @@ export default function Home() {
             className="order-1 lg:order-2 float"
             src={GuinchoAzul}
             alt="Guincho levando carro com técnico do lado"
+            priority
           />
         </div>
       </section>
@@ -77,6 +71,6 @@ export default function Home() {
           allowFullScreen
         ></iframe>
       </section>
-    </main>
+    </div>
   );
 }

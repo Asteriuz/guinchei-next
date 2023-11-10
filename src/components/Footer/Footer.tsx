@@ -1,7 +1,7 @@
 import React from "react";
 import GithubLogo from "@/assets/icons/github.png";
 import YoutubeLogo from "@/assets/icons/youtube.png";
-import GuincheiLogo from "@/assets/GuincheiLogoRemake.png";
+import GuincheiLogo from "@/assets/GuincheiLogo.svg";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ export default function () {
     <footer className="text-base lg:pt-8 bg-cinza-claro">
       <div className="w-full max-w-screen-xl p-4 mx-auto bg-cinza-claro">
         <div className="md:flex md:justify-between">
-          <div className="pb-4 m-4 mt-0 mb-8 ml-0 mr-10 obs-hidden md:mb-0 lg:mr-20">
+          <div className="pb-4 pt-4 md:pt-0 m-4 mt-0 mb-8 ml-0 mr-10 obs-hidden md:mb-0 lg:mr-20">
             <a href="#start" className="flex justify-center">
               <Image
                 width={184}

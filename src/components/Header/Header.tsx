@@ -1,12 +1,21 @@
 "use client";
 import Image from "next/image";
-import GuincheiLogo from "@/assets/GuincheiLogoRemake.png";
+import GuincheiLogo from "@/assets/GuincheiLogo.svg";
 import Link from "next/link";
 import TowTruck from "@/assets/icons/tow-truck-mirror.svg";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function Header() {
   const pathname = usePathname();
+
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", () => {
+      setScreenWidth(window.innerWidth);
+    });
+  }
 
   return (
     <header>
@@ -33,22 +42,23 @@ export default function Header() {
       <header id="start" className="flex">
         <nav
           id="navbar"
-          className="fixed left-0 z-50 w-full text-2xl duration-500 ease-in-out sm:pr-8 pl-2 sm:pl-4 top-0 bg-azul-escuro"
+          className="fixed left-0 z-50 w-full text-2xl duration-500 ease-in-out pl-2 sm:pr-4 sm:pl-4 top-0 bg-azul-escuro"
         >
           <div className="flex flex-wrap items-center justify-between p-4 mx-auto max-w-7xl">
             <Link href="/">
               <Image
                 className="transition duration-300 ease-in-out max-h-20 drop-shadow-lg hover:scale-110 md:max-h-24"
                 src={GuincheiLogo}
-                height={48}
+                height={screenWidth < 340 ? 42 : 56}
                 alt="Logo do Guinchei"
+                priority
               />
             </Link>
             <div className="flex items-center lg:order-2">
               <Link
                 aria-label="Fale Conosco"
                 href="/solicitar-guincho"
-                className="mr-3 flex items-center gap-2 rounded-full bg-azul-claro p-4 text-center font-medium text-white shadow-md duration-300 ease-in-out hover:-translate-y-2 hover:bg-azul-hover hover:shadow-xl xs:bg-[#E72227] sm:px-4 sm:py-3 lg:mr-0 lg:bg-azul-claro"
+                className="mr-3 flex items-center gap-2 rounded-full bg-azul-claro p-4 text-center font-medium text-white shadow-md duration-300 ease-in-out hover:-translate-y-2 hover:bg-azul-hover hover:shadow-xl  sm:px-4 sm:py-3 lg:mr-0 lg:bg-azul-claro"
               >
                 <Image
                   src={TowTruck}
@@ -56,7 +66,7 @@ export default function Header() {
                   height={35}
                   width={35}
                 />
-                <p className="hidden xs:block xs:text-lg lg:block lg:text-2xl hover:text-white">
+                <p className="hidden md:block md:text-2xl hover:text-white">
                   Solicitar Guincho
                 </p>
               </Link>
@@ -110,7 +120,7 @@ export default function Header() {
             >
               <ul className="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:p-0">
                 <li>
-                  <a
+                  <Link
                     href="/"
                     className={`block py-2 pl-3 pr-4 text-white rounded nav-link ${
                       pathname === "/" ? "bg-azul-claro lg:text-azul-claro" : ""
@@ -118,7 +128,7 @@ export default function Header() {
                     aria-current="page"
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link

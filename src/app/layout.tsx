@@ -25,9 +25,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={roboto.className + " overflow-x-hidden"}>
+      <body className={roboto.className}>
         <Header />
-        {children}
+        <main className="overflow-x-hidden">{children}</main>
         <Footer />
       </body>
       <Script src="js/flowbite.min.js" />
