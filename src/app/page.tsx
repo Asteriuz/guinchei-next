@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  // Version 1
   return (
     <div className="flex flex-col gap-y-8">
       <section className="w-screen pt-44 bg-azul-escuro pb-24">
