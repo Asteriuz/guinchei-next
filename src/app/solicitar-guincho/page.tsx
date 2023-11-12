@@ -62,11 +62,11 @@ export default function SolicitarGuincho() {
         // setEndereco("");
         // setMarca("");
         // setModelo("");
-        console.log(`Server responded with status: ${response.status}`);
+        // console.log(`Server responded with status: ${response.status}`);
         alert("Erro ao enviar solicitação, tente novamente mais tarde.");
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       alert("Erro ao enviar solicitação, tente novamente mais tarde.");
     }
   }
