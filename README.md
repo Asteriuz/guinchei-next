@@ -8,7 +8,7 @@
 <img src="src/assets/GuincheiLogo.svg" alt="Logo Guinchei" width=300>
 </p>
 
-> Repositório utilizado para a entrega do Challenge 3 de Web
+> Repositório utilizado para a entrega do Challenge 4 de Web
 
 <details open>
   <summary><h3><strong>Índice</strong></h3></summary>

@@ -19,7 +19,7 @@ export default function SolicitarGuincho() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/dados/");
+      const response = await fetch("http://localhost:3000/api/dados/");
       const data: Dados[] = await response.json();
       setDados(data);
       setModelosDisponiveis(data.map((dado) => dado.nome));
@@ -27,13 +27,49 @@ export default function SolicitarGuincho() {
     fetchData();
   }, []); // Run once on component mount
 
-  const submitClick = (e: FormEvent<HTMLFormElement>) => {
+  async function submitClick(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (formsSection.current) {
-      formsSection.current.style.backgroundImage = "none";
+
+    // fetch
+    try {
+      const data = {
+        nomeCompleto: nome,
+        email: email,
+        marca: marca,
+        modelo: modelo,
+        endereco: endereco,
+        imagem: imagem,
+        status: "Pendente",
+        dataCriacao: new Date().toISOString(),
+      };
+
+      const response = await fetch("http://localhost:3000/api/enviar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      // Check if the response status is OK (status code 200-299)
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        // Reset form
+        // setNome("");
+        // setEmail("");
+        // setImagem("");
+        // setEndereco("");
+        // setMarca("");
+        // setModelo("");
+        console.log(`Server responded with status: ${response.status}`);
+        alert("Erro ao enviar solicitação, tente novamente mais tarde.");
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Erro ao enviar solicitação, tente novamente mais tarde.");
     }
-    setIsSubmitted(true);
-  };
+  }
 
   const marcas = dados.map((dado) => dado.marca);
   const marcasUnicas = marcas.filter(
@@ -77,7 +113,7 @@ export default function SolicitarGuincho() {
             >
               <g
                 fill="#ffffff"
-                fill-rule="nonzero"
+                fillRule="nonzero"
                 stroke="none"
                 strokeWidth="2"
                 strokeLinecap="butt"
@@ -178,7 +214,7 @@ export default function SolicitarGuincho() {
             </div>
             <div className="form-group">
               <label className="label" htmlFor="email">
-                Imagens do caminhão
+                Imagens do acidente
               </label>
               <input
                 id="input-file"
