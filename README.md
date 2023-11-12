@@ -15,6 +15,7 @@
   <ol>
     <li><a href="#sobre">Sobre o Challenge</a></li>
     <li><a href="#requisitos">Requisitos</a></li>
+    <li><a href="#entrega">Entrega</a></li>
     <li><a href="#autores">Integrantes</a></li>
   </ol>
 </details>
@@ -28,7 +29,15 @@
 | _Professor_   | Alexandre Carlos de Jesus             |
 | _Turma_       | 1TDSS                                 |
 
-<h2 name="requisitos">📝 Requisitos</h2>
+<!-- requisitos -->
+<h2 name="requisitos">📋 Requisitos</h2>
+
+| _API_    | Github                                      |
+| -------- | ------------------------------------------- |
+| _Java_   | https://github.com/Asteriuz/JavaChallenge   |
+| _Python_ | https://github.com/Asteriuz/PythonChallenge |
+
+<h2 name="entrega">📬 Entrega</h2>
 
 <h3>Chegou a hora de finalizarmos o nosso projeto.</h3>
 <ul>
@@ -50,17 +59,6 @@
 
 <h3>Pontuação:</h3>
 
-<!-- • Construção do projeto de acordo com a 3ª entrega (20 pontos);
-
-• Criação de rotas e navegação com NEXT.JS (20 pontos);
-
-• Consumo das APIs. (25 pontos);
-
-• Utilização do Git/Github, projeto com no mínimo (novos) 10 commits e participação de todos os integrantes (10 pontos);
-
-• Deploy do projeto para a plataforma Vercel (15 pontos);
-
-• Entrega dentro dos padrões solicitados no documento. (10 pontos). -->
 <ul>
     <li>Construção do projeto de acordo com a 3ª entrega (20 pontos);</li>
     <li>Criação de rotas e navegação com NEXT.JS (20 pontos);</li>
