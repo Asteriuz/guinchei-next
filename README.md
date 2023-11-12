@@ -28,6 +28,7 @@
 | _Disciplina_  | RESPONSIVE WEB DEVELOPMENT            |
 | _Professor_   | Alexandre Carlos de Jesus             |
 | _Turma_       | 1TDSS                                 |
+| _Vercel_      | https://guinchei-next.vercel.app/     |
 
 <!-- requisitos -->
 <h2 name="requisitos">📋 Requisitos</h2>
