@@ -39,7 +39,7 @@ export default function SolicitarGuincho() {
         modelo: modelo,
         endereco: endereco,
         imagem: imagem,
-        status: "Pendente",
+        status: "PENDENTE",
         dataCriacao: new Date().toISOString(),
       };
 
